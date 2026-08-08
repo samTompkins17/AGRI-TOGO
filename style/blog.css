@@ -1,0 +1,552 @@
+/*============================*/
+/* BANNIÈRE D'EN-TÊTE DE LA PAGE ACTUALITÉS */
+/*============================*/
+
+.news-hero{
+
+    height:55vh;
+
+    background:url("../images/hero2.jpg") center/cover;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+}
+
+.hero-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.35);
+
+}
+
+.hero-content{
+
+    position:relative;
+
+    color:white;
+
+    text-align:center;
+
+}
+
+.hero-content h1{
+
+    font-size:4rem;
+
+    font-weight:800;
+
+}
+
+.title-line{
+
+    width:70px;
+
+    height:5px;
+
+    background:#F9B233;
+
+    margin:15px auto;
+
+    border-radius:30px;
+
+}
+
+/*============================*/
+
+/* Titre centré commun aux sections de la page */
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+}
+
+.section-title h2{
+
+    font-size:3rem;
+
+    font-style:italic;
+
+}
+
+/* Article vedette : image + texte côte à côte */
+.featured-news{
+
+    padding:90px 8%;
+
+}
+
+.featured-title{
+
+    font-size:2.2rem;
+
+    margin-bottom:50px;
+
+}
+
+.featured-container{
+
+    display:flex;
+
+    gap:50px;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+}
+
+.featured-image{
+
+    flex:1;
+
+}
+
+.featured-image img{
+
+    width:100%;
+
+    border-radius:15px;
+
+}
+
+.featured-content{
+
+    flex:1;
+
+}
+
+.date{
+
+    display:inline-block;
+
+    margin-bottom:20px;
+
+    color:#2E7D32;
+
+    font-weight:bold;
+
+}
+
+.featured-content p{
+
+    font-size:1.3rem;
+
+    line-height:1.8;
+
+    text-align:justify;
+
+}
+
+.btn-news{
+
+    display:inline-block;
+
+    margin-top:30px;
+
+    padding:14px 28px;
+
+    background:#2E7D32;
+
+    color:white;
+
+    border-radius:40px;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.btn-news:hover{
+
+    background:#1B5E20;
+
+}
+
+/*============================*/
+/* GRILLE DES AUTRES ARTICLES */
+/*============================*/
+
+.news{
+
+    padding:0 8% 100px;
+
+    background:
+
+        radial-gradient(600px 420px at 8% 10%, rgba(46,125,50,.13), transparent 65%),
+
+        radial-gradient(700px 480px at 92% 90%, rgba(249,178,51,.13), transparent 65%);
+
+}
+
+.news-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:40px;
+
+}
+
+/* Carte article : photo pleine hauteur + bande verre sur le bas (ancre scroll-margin) */
+.news-card{
+
+    position:relative;
+
+    background:transparent;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 25px var(--shadow);
+
+    transition:.4s;
+
+}
+
+.news-card img{
+
+    width:100%;
+
+    height:520px;
+
+    object-fit:cover;
+
+    display:block;
+
+    border-radius:18px;
+
+}
+
+.news-content{
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    padding:16px 20px;
+
+    /* Verre transparent noirci : bande pleine largeur sur l'image */
+
+    background:rgba(13,18,15,.9); /* fallback sans var() */
+
+    background:var(--glass-bg);
+
+    -webkit-backdrop-filter:blur(16px) saturate(150%);
+
+    backdrop-filter:blur(16px) saturate(150%);
+
+    border-top:1px solid var(--glass-border);
+
+    border-radius:0 0 18px 18px;
+
+    color:#fff;
+
+}
+
+.news-content span{
+
+    color:#A5D6A7;
+
+    font-weight:bold;
+
+}
+
+.news-content h3{
+
+    margin:10px 0;
+
+    font-size:1.05rem;
+
+    color:#fff;
+
+}
+
+.news-content p{
+
+    margin-bottom:12px;
+
+    font-size:.95rem;
+
+    color:rgba(255,255,255,.78);
+
+}
+
+.news-content a{
+
+    color:#A5D6A7;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+.news-content a:hover{
+
+    text-decoration:underline;
+
+}
+
+/*============================*/
+/* ÉVÉNEMENTS À VENIR */
+/*============================*/
+
+.events{
+
+    padding:0 8% 100px;
+
+    background:
+
+        radial-gradient(600px 420px at 12% 20%, rgba(46,125,50,.10), transparent 65%),
+
+        radial-gradient(650px 420px at 85% 70%, rgba(249,178,51,.10), transparent 65%);
+
+}
+
+.events-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    gap:30px;
+
+}
+
+/* Carte événement : date en bloc vert + détails */
+.event-card{
+
+    display:flex;
+
+    gap:20px;
+
+    align-items:flex-start;
+
+    /* Verre transparent noirci */
+
+    background:rgba(13,18,15,.9); /* fallback sans var() */
+
+    background:var(--glass-bg);
+
+    -webkit-backdrop-filter:blur(16px) saturate(150%);
+
+    backdrop-filter:blur(16px) saturate(150%);
+
+    border:1px solid var(--glass-border);
+
+    border-radius:16px;
+
+    padding:24px;
+
+    box-shadow:0 8px 20px var(--shadow);
+
+    transition:.3s;
+
+}
+
+.event-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 16px 30px rgba(0,0,0,.12);
+
+}
+
+.event-date{
+
+    flex-shrink:0;
+
+    width:64px;
+
+    height:64px;
+
+    border-radius:14px;
+
+    background:#2E7D32;
+
+    color:#fff;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+.event-date span{
+
+    font-size:1.6rem;
+
+    font-weight:800;
+
+    line-height:1;
+
+}
+
+.event-date small{
+
+    font-size:.65rem;
+
+    letter-spacing:1px;
+
+    margin-top:4px;
+
+}
+
+.event-details h3{
+
+    margin-bottom:8px;
+
+    font-size:1.15rem;
+
+    color:#fff;
+
+}
+
+.event-details p{
+
+    color:rgba(255,255,255,.78);
+
+    font-size:.95rem;
+
+    margin-bottom:12px;
+
+}
+
+.event-place{
+
+    color:#A5D6A7;
+
+    font-weight:600;
+
+    font-size:.9rem;
+
+}
+
+/*============================*/
+
+/* Ancres des articles (compense l'en-tête fixe) */
+#foire-agricole,
+#campagne-agricole,
+#formation-agriculteurs,
+#recoltes-arachide,
+#transformation-manioc {
+    scroll-margin-top: 110px;
+}
+
+/*============================*/
+/* RESPONSIVE — TABLETTE (≤ 768px) */
+/*============================*/
+
+@media(max-width:768px){
+
+.hero-content h1{
+
+    font-size:2.6rem;
+
+}
+
+.section-title h2{
+
+    font-size:2.2rem;
+
+}
+
+.featured-container{
+
+    flex-direction:column;
+
+}
+
+.featured-title{
+
+    text-align:center;
+
+}
+
+.featured-news{
+
+    padding:70px 6%;
+
+}
+
+.news{
+
+    padding:0 6% 80px;
+
+}
+
+.events{
+
+    padding:0 6% 80px;
+
+}
+
+.section-title{
+
+    margin-bottom:40px;
+
+}
+
+}
+
+/*============================*/
+/* RESPONSIVE — MOBILE (≤ 480px) */
+/*============================*/
+
+@media(max-width:480px){
+
+.hero-content h1{
+
+    font-size:2rem;
+
+}
+
+.section-title h2{
+
+    font-size:1.7rem;
+
+}
+
+.featured-content p{
+
+    font-size:1.05rem;
+
+}
+
+.event-card{
+
+    flex-direction:column;
+
+}
+
+.event-date{
+
+    width:56px;
+
+    height:56px;
+
+}
+
+}

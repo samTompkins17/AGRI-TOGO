@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" /> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style/style.css">
+    <script defer src="../Javascript/nav.js"></script>
+    <script>document.documentElement.dataset.theme = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");</script>
+    <script defer src="../Javascript/main.js"></script>
+    <title>AGRI-TOGO</title>
+</head>
+<body>
+    <!-- ===================================== -->
+    <!-- EN-TÊTE : BARRE DE NAVIGATION -->
+    <!-- ===================================== -->
+    <header>
+        <nav class="nav-bar">
+            <!-- Marque du site -->
+            <span class="nav-brand"><span class="material-symbols-outlined" aria-hidden="true">eco</span>AGRI-TOGO</span>
+            <!-- Case invisible qui pilote l'ouverture du menu mobile -->
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+            <!-- Bouton hamburger (visible en mobile) -->
+            <label for="nav-toggle" class="nav-toggle-label" aria-label="Ouvrir le menu">
+                <span class="material-symbols-outlined">menu</span>
+            </label>
+            <!-- Liens de navigation -->
+            <ul>
+                <li><a href="index.html" class="active" aria-current="page">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="products.html">Produits</a></li>
+                <li><a href="blogs.html">Actualités</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <!-- Bascule clair/sombre -->
+            <button type="button" class="theme-toggle" aria-label="Passer en mode sombre">
+                <span class="material-symbols-outlined" aria-hidden="true">dark_mode</span>
+            </button>
+        </nav>
+    </header>
+    <!-- ===================================== -->
+    <!-- CONTENU PRINCIPAL -->
+    <!-- ===================================== -->
+    <main>
+
+        <!-- ===== SECTION HÉRO ===== -->
+        <section class="presentation">
+            <!-- Diaporama du fond : animation1 et animation2 défilent en fondu au-dessus de hero.jpg -->
+            <div class="hero-slide slide-1" aria-hidden="true"></div>
+            <div class="hero-slide slide-2" aria-hidden="true"></div>
+            <!-- Voile sombre pour la lisibilité du texte sur la photo -->
+            <div class ="overlay"></div>
+            <div class="hero">
+                <!-- Titre et accroche -->
+
+                
+                <p class="hero-eyebrow">AGRI TOGO</p>
+                <h1>"Ensemble, valorisons<br> les produits locaux"</h1>
+                <p>Commandez maïs, maniocs, ananas et produits transformés, cultivés avec soin dans nos régions pour booster votre business.</p>
+                <!-- Boutons d'action -->
+                <button id="cta-1"><a href="products.html">Découvrir nos produits</a></button>
+                <button id="cta-2"><a href="contact.html">Nous Contacter</a></button>
+
+                
+            </div>
+            
+        </section>
+        
+        <!-- ===== CHIFFRES CLÉS ===== -->
+        <section class="stats">
+
+            <div class="title-box">
+                <h2>
+                    Nos <span>Chiffres Clés</span>
+                </h2>
+
+                <div class="line"></div>
+            </div>
+
+            <div class="stats-container">
+
+                <div class="stat">
+                    <h3>500+</h3>
+                    <p>Membres actifs</p>
+                </div>
+
+                <div class="separator"></div>
+
+                <div class="stat">
+                    <h3>2+</h3>
+                    <p>Régions occupées</p>
+                </div>
+
+                <div class="separator"></div>
+
+                <div class="stat">
+                    <h3>100+</h3>
+                    <p>Produits Disponibles</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ===== DERNIÈRES ACTUALITÉS ===== -->
+        <section class="actualites">
+
+    <div class="titre">
+        <h2>Les dernières actualités</h2>
+        <div class="ligne"></div>
+    </div>
+
+    <!-- Grille des cartes d'actualités (chaque carte renvoie à l'article du blog) -->
+    <div class="actualites-container">
+
+        <a class="actualite" href="blogs.html#transformation-manioc" aria-label="Transformation du manioc : les unités locales accélèrent">
+            <img src="../images/ma1.jpg" alt="Transformation du manioc">
+            <div class="actualite-content">
+                <span class="date"> 18 Juillet 2026</span>
+                <h3>Transformation du manioc : les unités locales accélèrent</h3>
+                <p>
+                    Les coopératives augmentent leur production de gari, de farine et
+                    de tapioca pour répondre à la demande croissante. Une belle
+                    dynamique pour valoriser les tubercules togolais.
+                </p>
+                <span class="read-more">Lire la suite →</span>
+            </div>
+        </a>
+
+        <a class="actualite" href="blogs.html#formation-agriculteurs" aria-label="Formation des agriculteurs aux techniques modernes">
+            <img src="../images/agriculteurs.jpeg" alt="Formation des agriculteurs">
+            <div class="actualite-content">
+                <span class="date"> 01 Août 2026</span>
+                <h3>Formation des agriculteurs aux techniques modernes</h3>
+                <p>
+                    Irrigation, gestion des sols et nouvelles méthodes de culture :
+                    une formation pratique pour améliorer les rendements des
+                    producteurs de nos régions.
+                </p>
+                <span class="read-more">Lire la suite →</span>
+            </div>
+        </a>
+
+        <a class="actualite" href="blogs.html#recoltes-arachide" aria-label="Début des récoltes d'arachide : une campagne prometteuse">
+            <img src="../images/m3.jpg" alt="Début des récoltes d'arachide">
+            <div class="actualite-content">
+                <span class="date"> 25 Juillet 2026</span>
+                <h3>Début des récoltes d'arachide : une campagne prometteuse</h3>
+                <p>
+                    Grâce à de bonnes conditions climatiques et au travail des
+                    communautés rurales, les coopératives annoncent une récolte
+                    abondante cette année.
+                </p>
+                <span class="read-more">Lire la suite →</span>
+            </div>
+        </a>
+
+    </div>
+
+    <div class="btn">
+        <a href="contact.html">Nous contacter →</a>
+    </div>
+
+</section>
+    </main>
+
+    <!-- ===================================== -->
+    <!-- PIED DE PAGE -->
+    <!-- ===================================== -->
+    <footer>
+      <p>AGRI-TOGO | Coopérative Agricole</p>
+      <p>Adresse : Lomé, Togo</p>
+      <p>&copy; 2026 AGRI-TOGO. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

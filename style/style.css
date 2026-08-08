@@ -1,0 +1,845 @@
+/* =========================================
+   AGRI-TOGO — Feuille de style globale
+   Thème clair/sombre, navigation, héros,
+   statistiques, actualités, footer, reveal
+========================================= */
+
+/* Police Poppins chargée depuis Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Réinitialisation des marges et du modèle de boîte */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* =========================================
+   VARIABLES DE THÈME (CLAIR / SOMBRE)
+========================================= */
+
+/* Thème clair par défaut */
+:root {
+    --bg: #ffffff;
+    --bg-soft: #f7f7f4;
+    --surface: #ffffff;
+    --surface-hover: #f0f6f0;
+    --text: #111111;
+    --text-soft: #444444;
+    --border: #e7e7e2;
+    --header-border: #111111;
+    --shadow: rgba(0, 0, 0, 0.14);
+    /* Verre transparent noirci (panneaux de description) */
+    --glass-bg:
+        linear-gradient(160deg, rgba(255,255,255,.09), rgba(255,255,255,0) 45%),
+        rgba(13,18,15,.55);
+    --glass-border: rgba(255,255,255,.12);
+    color-scheme: light;
+}
+
+/* Thème sombre : activé via data-theme="dark" sur <html> (main.js) */
+[data-theme="dark"] {
+    --bg: #101512;
+    --bg-soft: #1a201c;
+    --surface: #1d241f;
+    --surface-hover: #26312b;
+    --text: #e9eeea;
+    --text-soft: #a7b1aa;
+    --border: #2a332d;
+    --header-border: #2a332d;
+    --shadow: rgba(0, 0, 0, 0.55);
+    color-scheme: dark;
+}
+
+/* Base du document : couleurs du thème + transition douce au changement */
+body {
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* En-tête fixe en haut de la fenêtre (au-dessus de tout le contenu) */
+/* Échelle z-index : header 1000, panneau menu mobile 999 */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 8px 24px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--header-border);
+    transition: background-color 0.3s ease;
+}
+
+/* Verre dépoli sur l'en-tête : translucide + flou, repli opaque si non supporté */
+@supports ((backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px))) {
+    header {
+        background: rgba(255, 255, 255, 0.82);
+        -webkit-backdrop-filter: blur(12px) saturate(160%);
+        backdrop-filter: blur(12px) saturate(160%);
+    }
+
+    [data-theme="dark"] header {
+        background: rgba(16, 21, 18, 0.82);
+    }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+    header {
+        background: var(--bg);
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
+}
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+/* Barre de navigation : marque à gauche, liens puis bouton thème à droite */
+.nav-bar {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 6px 0;
+    position: relative;
+}
+
+/* Marque du site (icône feuille + nom) */
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #327A31;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.nav-brand .material-symbols-outlined {
+    font-size: 24px;
+}
+
+/* Liste des liens : poussée à droite de la barre */
+.nav-bar ul {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: auto;
+}
+
+/* Liens de navigation : pastille au survol, lien actif en vert */
+.nav-bar ul li a {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 10px;
+    color: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    background: none;
+    border: none;
+    transition: color 0.25s ease, background-color 0.25s ease;
+}
+
+.nav-bar ul li a:hover {
+    color: #327A31;
+    background: var(--surface-hover);
+}
+
+.nav-bar ul li a:focus-visible {
+    outline: 2px solid #327A31;
+    outline-offset: 2px;
+}
+
+/* Lien de la page courante : vert + gras, sans soulignement */
+.nav-bar ul li a.active {
+    color: #327A31;
+    font-weight: 600;
+}
+
+/* Toggle du menu mobile (caché sur desktop) */
+.nav-toggle-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.nav-toggle-label {
+    display: none;
+}
+
+.nav-toggle-input:focus-visible + .nav-toggle-label {
+    outline: 2px solid #327A31;
+    outline-offset: 2px;
+}
+
+/* Fallback :focus pour les navigateurs sans :focus-visible (Safari < 15.4) */
+@supports not selector(:focus-visible) {
+    .nav-toggle-input:focus + .nav-toggle-label,
+    .nav-bar ul li a:focus,
+    .theme-toggle:focus {
+        outline: 2px solid #327A31;
+        outline-offset: 2px;
+    }
+}
+
+/* Bascule clair/sombre */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    cursor: pointer;
+    padding: 0;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--surface-hover);
+    transform: translateY(-2px);
+    box-shadow: none;
+}
+
+/* L'icône pivote légèrement au survol */
+.theme-toggle .material-symbols-outlined {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover .material-symbols-outlined {
+    transform: rotate(20deg);
+}
+
+/* =========================================
+   HERO (ACCUEIL)
+========================================= */
+
+.presentation {
+    position: relative;
+    background-image: url(../images/hero.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    padding: 80px 32px;
+    height: 800px;
+}
+
+.hero {
+    padding: 90px 50px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Voile dégradé (blanc en clair, sombre en nuit) pour la lisibilité du texte */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(255,255,255,.82) 0%,
+        rgba(255,255,255,.68) 35%,
+        rgba(255,255,255,.25) 70%,
+        rgba(255,255,255,.05) 100%
+    );
+    z-index: 1;
+}
+
+[data-theme="dark"] .overlay {
+    background: linear-gradient(
+        to right,
+        rgba(10,14,11,.9) 0%,
+        rgba(10,14,11,.7) 40%,
+        rgba(10,14,11,.3) 75%,
+        rgba(10,14,11,.05) 100%
+    );
+}
+
+/* =========================================
+   DIAPORAMA DU HÉRO (ACCUEIL)
+   hero.jpg reste la base ; animation1.jpg et animation2.jpg
+   se croisent en fondu au-dessus, en boucle de 18 s
+========================================= */
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    will-change: opacity;
+}
+
+.hero-slide.slide-1 {
+    background-image: url(../images/animation1.jpg);
+    animation: hero-fade-1 18s infinite;
+}
+
+.hero-slide.slide-2 {
+    background-image: url(../images/animation2.jpg);
+    animation: hero-fade-2 18s infinite;
+}
+
+/* Boucle de 18 s : chaque image occupe 6 s (fondu entrant 1 s,
+   affichage ~4 s, fondu sortant 1 s). Sur le créneau restant
+   (12-18 s), l'image de base hero.jpg reste visible. */
+@keyframes hero-fade-1 {
+    0%    { opacity: 0; }
+    5.6%  { opacity: 1; }
+    27.8% { opacity: 1; }
+    33.3% { opacity: 0; }
+    100%  { opacity: 0; }
+}
+
+@keyframes hero-fade-2 {
+    0%    { opacity: 0; }
+    33.3% { opacity: 0; }
+    38.9% { opacity: 1; }
+    61.1% { opacity: 1; }
+    66.7% { opacity: 0; }
+    100%  { opacity: 0; }
+}
+
+/* Mouvement réduit : fond fixe (hero.jpg) sans diaporama */
+@media (prefers-reduced-motion: reduce) {
+    .hero-slide {
+        animation: none;
+        opacity: 0;
+    }
+}
+
+.presentation .hero h1 {
+    font-size: 64px;
+    margin-bottom: 32px;
+}
+
+/* Étiquette du héro : texte vert en gras, fond blanc uniquement en mode sombre */
+/* Spécificité renforcée : ne pas se laisser écraser par .hero p */
+.hero .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 54px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+    color: #327A31;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.28px;
+}
+
+[data-theme="dark"] .hero .hero-eyebrow {
+    background-color: #ffffff;
+}
+
+
+
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 48px;
+    font-weight: 500;
+}
+
+button {
+    background-color: transparent;
+    padding: 12.8px 19.2px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button#cta-1 {
+    background-color: #327A31;
+    border: none;
+    margin-right: 15px;
+}
+
+/* Texte blanc sur le CTA vert : contraste AA */
+button#cta-1 a {
+    color: #fff;
+}
+
+button#cta-2 {
+    border: 1px solid #F3AC2A;
+}
+
+button#cta-2:hover {
+    background-color: #f4a300;
+    transition: 0.5s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+button a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* =========================================
+   STATISTIQUES (ACCUEIL)
+========================================= */
+
+.stats {
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.title-box {
+    margin-bottom: 50px;
+}
+
+.title-box h2 {
+    display: inline-block;
+    padding: 6px 15px;
+    font-size: 2rem;
+    font-weight: 700;
+    position: relative;
+}
+
+.line {
+    width: 50px;
+    height: 4px;
+    background: #f4a300;
+    margin: 8px auto 0;
+    border-radius: 10px;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+.stat {
+    min-width: 180px;
+}
+
+/* Valeur de la statistique (chiffre animé par main.js) */
+.stat h3 {
+    color: #2e7d32;
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.stat p {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.separator {
+    width: 2px;
+    height: 60px;
+    background: var(--border);
+}
+
+/* =========================================
+   ACTUALITÉS (ACCUEIL)
+========================================= */
+
+/* Section actualités : dégradés décoratifs pour donner de la matière au flou du verre */
+.actualites {
+    padding: 80px 8%;
+    text-align: center;
+    background:
+        radial-gradient(600px 420px at 10% 15%, rgba(46,125,50,.13), transparent 65%),
+        radial-gradient(700px 480px at 90% 85%, rgba(249,178,51,.13), transparent 65%);
+}
+
+.titre h2 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.ligne {
+    width: 60px;
+    height: 4px;
+    background: #f5b21c;
+    margin: 12px auto 50px;
+    border-radius: 20px;
+}
+
+.actualites-container {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+/* Carte d'actualité entièrement cliquable (lien vers l'article du blog) */
+.actualite {
+    position: relative;
+    display: block;
+    width: 330px;
+    background: transparent;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px var(--shadow);
+    transition: .4s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.actualite:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 35px var(--shadow);
+}
+
+.actualite img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    display: block;
+}
+
+.actualite-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 14px 20px;
+    /* Verre transparent noirci : bande pleine largeur sur l'image */
+    background: rgba(13,18,15,.9); /* fallback sans var() */
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    backdrop-filter: blur(16px) saturate(150%);
+    border-top: 1px solid var(--glass-border);
+    color: #fff;
+}
+
+.actualite .date {
+    display: block;
+    color: #A5D6A7;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0 0 6px;
+}
+
+.actualite h3 {
+    margin: 0 0 8px;
+    font-size: 1.05rem;
+    line-height: 1.35;
+    color: #fff;
+}
+
+.actualite p {
+    padding: 0 0 6px;
+    line-height: 1.6;
+    text-align: justify;
+    font-size: .95rem;
+    color: rgba(255,255,255,.78);
+}
+
+.read-more {
+    display: inline-block;
+    color: #A5D6A7;
+    font-weight: 600;
+    padding-bottom: 16px;
+    font-size: .9rem;
+    transition: transform .3s ease;
+}
+
+.actualite:hover .read-more {
+    transform: translateX(4px);
+}
+
+.btn {
+    margin-top: 60px;
+}
+
+.btn a {
+    align-items: center;
+    gap: 15px;
+    padding: 15px 35px;
+    border: 2px solid #4CAF50;
+    border-radius: 50px;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+    transition: .3s;
+}
+
+.btn a:hover {
+    background: #4CAF50;
+    color: white;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    text-align: center;
+    padding: 44px 20px;
+    background: var(--bg-soft);
+    border-top: 1px solid var(--border);
+}
+
+footer p {
+    margin: 6px 0;
+    font-size: 14px;
+    color: var(--text-soft);
+}
+
+/* =========================================
+   RESPONSIVE — STYLES PARTAGÉS
+========================================= */
+
+/* ---- Tablette (≤ 992px) ---- */
+@media (max-width: 992px) {
+    .nav-bar ul {
+        gap: 6px;
+    }
+
+    .presentation .hero h1 {
+        font-size: 48px;
+    }
+
+    .presentation {
+        height: auto;
+        min-height: 720px;
+    }
+}
+
+/* ---- Mobile (≤ 768px) ---- */
+@media (max-width: 768px) {
+    /* En-tête resserré sur mobile */
+    header {
+        padding: 8px 16px;
+    }
+
+    /* Menu hamburger */
+    .nav-toggle-label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        margin-left: auto;
+        color: var(--text);
+        cursor: pointer;
+        border-radius: 10px;
+        user-select: none;
+    }
+
+    .nav-toggle-label:hover {
+        background: var(--surface-hover);
+    }
+
+    .nav-toggle-label .material-symbols-outlined {
+        font-size: 28px;
+    }
+
+    /* Panneau déroulant du menu mobile */
+    .nav-bar ul {
+        display: none;
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        box-shadow: 0 20px 48px var(--shadow);
+        padding: 8px;
+        z-index: 999;
+    }
+
+    .nav-toggle-input:checked ~ ul {
+        display: flex;
+        animation: nav-menu-in 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes nav-menu-in {
+        from {
+            opacity: 0;
+            transform: translateY(-6px);
+        }
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    .nav-bar ul li a {
+        display: block;
+        padding: 13px 16px;
+        border-radius: 10px;
+    }
+
+    .nav-bar ul li a:hover {
+        background: var(--surface-hover);
+        color: #327A31;
+    }
+
+    /* Hero */
+    .presentation {
+        height: auto;
+        min-height: 92vh;
+        padding: 120px 22px 70px;
+    }
+
+    .hero {
+        padding: 20px 4px;
+    }
+
+    .presentation .hero h1 {
+        font-size: 34px;
+        margin-bottom: 24px;
+    }
+
+    .hero .hero-eyebrow {
+        width: 200px;
+        height: 54px;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 18px;
+        margin-bottom: 36px;
+    }
+
+    button#cta-1,
+    button#cta-2 {
+        display: block;
+        width: 100%;
+        max-width: 320px;
+        margin: 12px auto;
+        padding: 15px 20px;
+        font-size: 15px;
+    }
+
+    /* Statistiques */
+    .stats {
+        padding: 60px 16px;
+    }
+
+    .stats-container {
+        gap: 28px;
+    }
+
+    .separator {
+        display: none;
+    }
+
+    .stat h3 {
+        font-size: 2.1rem;
+    }
+
+    .stat p {
+        font-size: 14px;
+    }
+
+    /* Actualités */
+    .actualites {
+        padding: 60px 6%;
+    }
+
+    .titre h2 {
+        font-size: 1.6rem;
+    }
+
+    .actualite {
+        width: 100%;
+        max-width: 360px;
+    }
+
+    .btn a {
+        padding: 13px 28px;
+    }
+}
+
+/* ---- Très petits écrans (≤ 420px) ---- */
+@media (max-width: 420px) {
+    .presentation .hero h1 {
+        font-size: 30px;
+    }
+
+    .title-box h2 {
+        font-size: 1.6rem;
+    }
+}
+
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+
+/* Élément masqué par défaut, révélé par JS (IntersectionObserver) à l'entrée dans l'écran */
+.reveal {
+    opacity: 0;
+    transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+    transition-delay: var(--delay, 0ms);
+}
+
+/* Directions d'entrée : haut, gauche, droite, zoom */
+.reveal-up     { transform: translateY(30px); }
+.reveal-left   { transform: translateX(-40px); }
+.reveal-right  { transform: translateX(40px); }
+.reveal-scale  { transform: scale(0.85); }
+
+/* État visible (classe ajoutée par le JS) */
+.reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .nav-toggle-input:checked ~ ul {
+        animation: none;
+    }
+}
+
+/* ---- Parallax sur les héros (desktop) ---- */
+@media (min-width: 768px) {
+    .presentation,
+    .hero-slide,
+    .news-hero,
+    .products-hero,
+    .hero {
+        background-attachment: fixed;
+    }
+
+    
+}

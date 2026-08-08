@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/blog.css">
+    <script defer src="../Javascript/nav.js"></script>
+    <script>document.documentElement.dataset.theme = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");</script>
+    <script defer src="../Javascript/main.js"></script>
+    <title>Actualités</title>
+</head>
+<body>
+    <!-- ===================================== -->
+    <!-- EN-TÊTE : BARRE DE NAVIGATION -->
+    <!-- ===================================== -->
+    <header>
+        <nav class="nav-bar">
+            <!-- Marque du site -->
+            <span class="nav-brand"><span class="material-symbols-outlined" >eco</span>AGRI-TOGO</span>
+            <!-- Case invisible qui pilote l'ouverture du menu mobile -->
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+            <!-- Bouton hamburger (visible en mobile) -->
+            <label for="nav-toggle" class="nav-toggle-label" aria-label="Ouvrir le menu">
+                <span class="material-symbols-outlined">menu</span>
+            </label>
+            <!-- Liens de navigation -->
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="products.html">Produits</a></li>
+                <li><a href="blogs.html" class="active" aria-current="page">Actualités</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <!-- Bascule clair/sombre -->
+            <button type="button" class="theme-toggle" aria-label="Passer en mode sombre">
+                <span class="material-symbols-outlined" aria-hidden="true">dark_mode</span>
+            </button>
+        </nav>
+    </header>
+    <main id="actualites">
+
+    <!--================ HERO ================-->
+
+    <section class="news-hero">
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+
+            <h1>Actualités</h1>
+
+            <div class="title-line"></div>
+
+        </div>
+
+    </section>
+
+    <!--================ ACTUALITE PRINCIPALE ================-->
+
+    <section class="featured-news">
+
+        <div class="section-title">
+
+            <h2>Actualités récentes</h2>
+
+            <div class="title-line"></div>
+
+        </div>
+
+        <div class="featured-container">
+
+            <figure class="featured-image">
+
+                <img src="../images/FOIRE.jpg" alt="Foire Agricole">
+
+            </figure>
+
+            <article class="featured-content" id="foire-agricole">
+
+                <span class="date">
+                    1er Mai
+                </span>
+
+                <h3>
+                    Foire Agricole, Artisanale et Culinaire
+                </h3>
+
+                <p>
+
+                    Cette foire rassemble producteurs, artisans,
+                    transformateurs et visiteurs autour des richesses
+                    agricoles du Togo. Les participants pourront
+                    découvrir les produits du terroir, assister à des
+                    démonstrations culinaires et rencontrer les acteurs
+                    du secteur agricole.
+
+                </p>
+
+                <a href="products.html" class="btn-news">
+
+                    Découvrir les produits de la foire →
+
+                </a>
+
+            </article>
+
+        </div>
+
+    </section>
+
+    <!--================ EVENEMENTS ================-->
+
+    <section class="events">
+
+        <div class="section-title">
+
+            <h2>Événements à venir</h2>
+
+            <div class="title-line"></div>
+
+        </div>
+
+        <div class="events-grid">
+
+            <article class="event-card">
+
+                <div class="event-date">
+
+                    <span>15</span>
+
+                    <small>AOÛT</small>
+
+                </div>
+
+                <div class="event-details">
+
+                    <h3>Salon National de l'Agriculture</h3>
+
+                    <p>
+
+                        Exposition des innovations agricoles,
+                        démonstrations techniques et rencontres
+                        entre producteurs.
+
+                    </p>
+
+                    <span class="event-place">
+
+                         Lomé
+
+                    </span>
+
+                </div>
+
+            </article>
+
+            <article class="event-card">
+
+                <div class="event-date">
+
+                    <span>24</span>
+
+                    <small>AOÛT</small>
+
+                </div>
+
+                <div class="event-details">
+
+                    <h3>Formation des Jeunes Agriculteurs</h3>
+
+                    <p>
+
+                        Formation sur les techniques modernes,
+                        l'irrigation et la gestion des exploitations.
+
+                    </p>
+
+                    <span class="event-place">
+
+                         Kara
+
+                    </span>
+
+                </div>
+
+            </article>
+
+            <article class="event-card">
+
+                <div class="event-date">
+
+                    <span>08</span>
+
+                    <small>SEPT</small>
+
+                </div>
+
+                <div class="event-details">
+
+                    <h3>Marché des Produits Locaux</h3>
+
+                    <p>
+
+                        Vente directe des produits agricoles
+                        et transformés des coopératives locales.
+
+                    </p>
+
+                    <span class="event-place">
+
+                         Atakpamé
+
+                    </span>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+    <!--================ AUTRES ACTUALITES ================-->
+
+    <section class="news">
+
+        <div class="section-title">
+
+            <h2>Autres actualités</h2>
+
+            <div class="title-line"></div>
+
+        </div>
+
+        <div class="news-grid">
+
+            <article class="news-card" id="campagne-agricole">
+
+                <img src="../images/foire1.jpg" alt="Campagne agricole">
+
+                <div class="news-content">
+
+                    <span class="date">
+
+                         05 Août 2026
+
+                    </span>
+
+                    <h3>
+
+                        Nouvelle campagne agricole
+
+                    </h3>
+
+                    <p>
+
+                        Les producteurs se préparent pour la
+                        nouvelle saison avec des semences
+                        améliorées et des techniques innovantes.
+
+                    </p>
+
+                    <a href="#">
+
+                        Lire la suite →
+
+                    </a>
+
+                </div>
+
+            </article>
+
+            <article class="news-card" id="formation-agriculteurs">
+
+                <img src="../images/agriculteurs.jpeg" alt="Formation">
+
+                <div class="news-content">
+
+                    <span class="date">
+
+                         01 Août 2026
+
+                    </span>
+
+                    <h3>
+
+                        Formation des agriculteurs
+
+                    </h3>
+
+                    <p>
+
+                        Une formation pratique a permis aux
+                        producteurs d'améliorer leurs méthodes
+                        de culture.
+
+                    </p>
+
+                    <a href="#">
+
+                        Lire la suite →
+
+                    </a>
+
+                </div>
+
+            </article>
+
+            <article class="news-card" id="recoltes-arachide">
+
+                <img src="../images/m3.jpg" alt="Récolte">
+
+                <div class="news-content">
+
+                    <span class="date">
+
+                         25 Juillet 2026
+
+                    </span>
+
+                    <h3>
+
+                        Début des récoltes d'arachide
+
+                    </h3>
+
+                    <p>
+
+                        Les coopératives annoncent une récolte
+                        prometteuse grâce aux bonnes conditions
+                        climatiques.
+
+                    </p>
+
+                    <a href="#">
+
+                        Lire la suite →
+
+                    </a>
+
+                </div>
+
+            </article>
+
+            <article class="news-card" id="transformation-manioc">
+
+                <img src="../images/trans.jpg" alt="Transformation">
+
+                <div class="news-content">
+
+                    <span class="date">
+
+                         18 Juillet 2026
+
+                    </span>
+
+                    <h3>
+
+                        Transformation du manioc
+
+                    </h3>
+
+                    <p>
+
+                        Les unités locales augmentent leur
+                        production de farine et de gari afin
+                        de répondre à la demande.
+
+                    </p>
+
+                    <a href="#">
+
+                        Lire la suite →
+
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+
+    <p>AGRI-TOGO | Coopérative Agricole</p>
+
+    <p>Adresse : Lomé, Togo</p>
+
+    <p>&copy; 2026 AGRI-TOGO. Tous droits réservés.</p>
+
+</footer>
+
+</body>
+</html>

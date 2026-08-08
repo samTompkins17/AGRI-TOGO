@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/products.css">
+    <script defer src="../Javascript/products.js"></script>
+    <script defer src="../Javascript/nav.js"></script>
+    <script>document.documentElement.dataset.theme = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");</script>
+    <script defer src="../Javascript/main.js"></script>
+    <title>Produits</title>
+</head>
+<body>
+    <!-- ===================================== -->
+    <!-- EN-TÊTE : BARRE DE NAVIGATION -->
+    <!-- ===================================== -->
+    <header>
+        <nav class="nav-bar">
+            <!-- Marque du site -->
+            <span class="nav-brand"><span class="material-symbols-outlined" aria-hidden="true">eco</span>AGRI-TOGO</span>
+            <!-- Case invisible qui pilote l'ouverture du menu mobile -->
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+            <!-- Bouton hamburger (visible en mobile) -->
+            <label for="nav-toggle" class="nav-toggle-label" aria-label="Ouvrir le menu">
+                <span class="material-symbols-outlined">menu</span>
+            </label>
+            <!-- Liens de navigation -->
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="products.html" class="active" aria-current="page">Produits</a></li>
+                <li><a href="blogs.html">Actualités</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <!-- Bascule clair/sombre -->
+            <button type="button" class="theme-toggle" aria-label="Passer en mode sombre">
+                <span class="material-symbols-outlined" aria-hidden="true">dark_mode</span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ===================================== -->
+<!-- HERO -->
+<!-- ===================================== -->
+
+<section class="products-hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <h1>Nos Produits</h1>
+
+        <div class="title-line"></div>
+
+    </div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- INTRO -->
+<!-- ===================================== -->
+
+<section class="products-intro">
+
+    <div class="container">
+
+        <h2>
+            Découvrez ici notre catalogue de produits agricoles et des produits transformés
+        </h2>
+
+        <p>
+            Explorez une sélection de produits frais issus de l'agriculture togolaise
+            ainsi que des produits transformés de qualité.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- RECHERCHE -->
+<!-- ===================================== -->
+
+<section class="products-search">
+
+    <input
+        type="text"
+        id="search"
+        placeholder="Rechercher un produit..."
+    >
+
+</section>
+
+<!-- ===================================== -->
+<!-- FILTRES -->
+<!-- ===================================== -->
+
+<section class="products-filter">
+
+    <button class="filter-btn active" data-filter="all">
+        Tous
+    </button>
+
+    <button class="filter-btn" data-filter="fruit">
+        Fruits
+    </button>
+
+    <button class="filter-btn" data-filter="legume">
+        Légumes
+    </button>
+
+    <button class="filter-btn" data-filter="tubercule">
+        Tubercules
+    </button>
+
+    <button class="filter-btn" data-filter="cereale">
+        Céréales
+    </button>
+
+    <button class="filter-btn" data-filter="transforme">
+        Produits transformés
+    </button>
+
+</section>
+
+<!-- ===================================== -->
+<!-- PRODUITS -->
+<!-- ===================================== -->
+
+<section class="products">
+
+    <div class="products-grid">
+
+        <article class="product-card" data-category="tubercule">
+
+            <img src="../images/manioc.jpg" alt="Manioc">
+
+            <div class="product-info">
+
+                <h3>Manioc</h3>
+
+                <p>
+                    Tubercule très utilisé pour la fabrication du gari,
+                    de la farine et du tapioca.
+                </p>
+
+            </div>
+
+        </article>
+
+        <article class="product-card" data-category="cereale">
+
+            <img src="../images/mais.jpg" alt="Maïs">
+
+            <div class="product-info">
+
+                <h3>Maïs</h3>
+
+                <p>
+                    Une céréale essentielle pour l'alimentation
+                    humaine et animale.
+                </p>
+
+            </div>
+
+        </article>
+
+        <article class="product-card" data-category="fruit">
+
+            <img src="../images/ananas1.jpg" alt="Ananas">
+
+            <div class="product-info">
+
+                <h3>Ananas</h3>
+
+                <p>
+                    Fruit tropical apprécié pour sa saveur
+                    sucrée et sa richesse en vitamines.
+                </p>
+
+            </div>
+
+        </article>
+
+        <article class="product-card" data-category="legume">
+
+            <img src="../images/oignon.jpg" alt="Oignon">
+
+            <div class="product-info">
+
+                <h3>Oignon</h3>
+
+                <p>
+                    Légume incontournable dans la cuisine
+                    togolaise.
+                </p>
+
+            </div>
+
+        </article>
+
+        <article class="product-card" data-category="tubercule">
+
+            <img src="../images/pomme_de_terre.jpg" alt="Pomme de terre">
+
+            <div class="product-info">
+
+                <h3>Pomme de terre</h3>
+
+                <p>
+                    Tubercule riche en glucides et très
+                    polyvalent en cuisine.
+                </p>
+
+            </div>
+
+        </article>
+
+        <article class="product-card" data-category="legume">
+
+            <img src="../images/piment.jpg" alt="Piment">
+
+            <div class="product-info">
+
+                <h3>Piment</h3>
+
+                <p>
+                    Piment frais cultivé localement pour relever
+                    tous vos plats.
+                </p>
+
+            </div>
+
+        </article>
+
+        <article class="product-card" data-category="transforme">
+
+            <img src="../images/jus_ananas.jpg" alt="Jus d'ananas">
+
+            <div class="product-info">
+
+                <h3>Jus d'ananas</h3>
+
+                <p>
+                    Jus naturel préparé à partir
+                    d'ananas frais.
+                </p>
+
+            </div>
+
+        </article>
+
+        <article class="product-card" data-category="transforme">
+
+            <img src="../images/jus_mangue.jpg" alt="Jus de mangue">
+
+            <div class="product-info">
+
+                <h3>Jus de mangue</h3>
+
+                <p>
+                    Boisson rafraîchissante à base
+                    de mangues locales.
+                </p>
+
+            </div>
+
+        </article>
+
+        <article class="product-card" data-category="transforme">
+
+            <img src="../images/farine.jpeg" alt="Farine">
+
+            <div class="product-info">
+
+                <h3>Farine de maïs</h3>
+
+                <p>
+                    Farine de qualité destinée à
+                    l'alimentation familiale.
+                </p>
+
+            </div>
+
+        </article>
+
+    </div>
+
+    <p id="no-result" style="display:none;">
+        Aucun produit trouvé.
+    </p>
+
+</section>
+
+    </main>
+
+    <footer>
+        <p>AGRI-TOGO | Coopérative Agricole</p>
+        <p>Adresse : Lomé, Togo</p>
+        <p>&copy; 2026 AGRI-TOGO. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

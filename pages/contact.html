@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/contact.css">
+    <script defer src="../Javascript/nav.js"></script>
+    <script>document.documentElement.dataset.theme = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");</script>
+    <script defer src="../Javascript/main.js"></script>
+    <title>Contact</title>
+</head>
+<body>
+    <!-- ===================================== -->
+    <!-- EN-TÊTE : BARRE DE NAVIGATION -->
+    <!-- ===================================== -->
+    <header>
+        <nav class="nav-bar">
+            <!-- Marque du site -->
+            <span class="nav-brand"><span class="material-symbols-outlined" aria-hidden="true">eco</span>AGRI-TOGO</span>
+            <!-- Case invisible qui pilote l'ouverture du menu mobile -->
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+            <!-- Bouton hamburger (visible en mobile) -->
+            <label for="nav-toggle" class="nav-toggle-label" aria-label="Ouvrir le menu">
+                <span class="material-symbols-outlined">menu</span>
+            </label>
+            <!-- Liens de navigation -->
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="products.html">Produits</a></li>
+                <li><a href="blogs.html">Actualités</a></li>
+                <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
+            </ul>
+            <!-- Bascule clair/sombre -->
+            <button type="button" class="theme-toggle" aria-label="Passer en mode sombre">
+                <span class="material-symbols-outlined" aria-hidden="true">dark_mode</span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ===================================== -->
+    <!-- SECTION CONTACT : FORMULAIRE + COORDONNÉES -->
+    <!-- ===================================== -->
+    <main class="contact-main">
+        <h1>Désirez-vous nous contacter ?</h1>
+
+        <div class="contact-wrap">
+
+            <!-- Formulaire de contact (validé côté client par main.js, d'où novalidate) -->
+            <form id="contactForm" class="contact-form" novalidate>
+                <div class="field">
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" name="nom">
+                </div>
+
+                <div class="field">
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email">
+                </div>
+
+                <div class="field">
+                    <label for="sujet">Sujet :</label>
+                    <input type="text" id="sujet" name="sujet">
+                </div>
+
+                <div class="field">
+                    <label for="message">Message :</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Décrivez votre message..."></textarea>
+                </div>
+
+                <button type="submit">Envoyer</button>
+            </form>
+
+            <!-- Coordonnées de la coopérative -->
+            <aside class="contact-info">
+                <h3>Coordonnées de la coopérative</h3>
+                <p><strong>Nom :</strong> AGRI-TOGO </p>
+                <p><strong>Siège social :</strong> Lomé, Togo</p>
+                <p><strong>Téléphone :</strong> +228 00 00 00 00</p>
+                <p><strong>Email :</strong> contact@agritogo.com</p>
+
+            </aside>
+
+        </div>
+    </main>
+
+   
+    <!-- ===================================== -->
+    <!-- PIED DE PAGE -->
+    <!-- ===================================== -->
+    <footer>
+        <p>AGRI-TOGO | Coopérative Agricole</p>
+        <p>Adresse : Lomé, Togo</p>
+        <p>&copy; 2026 AGRI-TOGO. Tous droits réservés.</p>
+    </footer>
+
+    
+</body>
+</html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/about.css">
+    <script defer src="../Javascript/nav.js"></script>
+    <script>document.documentElement.dataset.theme = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");</script>
+    <script defer src="../Javascript/main.js"></script>
+    <title>À propos</title>
+</head>
+<body>
+    <!-- ===================================== -->
+    <!-- EN-TÊTE : BARRE DE NAVIGATION -->
+    <!-- ===================================== -->
+    <header>
+        <nav class="nav-bar">
+            <!-- Marque du site -->
+            <span class="nav-brand"><span class="material-symbols-outlined" aria-hidden="true">eco</span>AGRI-TOGO</span>
+            <!-- Case invisible qui pilote l'ouverture du menu mobile -->
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+            <!-- Bouton hamburger (visible en mobile) -->
+            <label for="nav-toggle" class="nav-toggle-label" aria-label="Ouvrir le menu">
+                <span class="material-symbols-outlined">menu</span>
+            </label>
+            <!-- Liens de navigation -->
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html" class="active" aria-current="page">À propos</a></li>
+                <li><a href="products.html">Produits</a></li>
+                <li><a href="blogs.html">Actualités</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <!-- Bascule clair/sombre -->
+            <button type="button" class="theme-toggle" aria-label="Passer en mode sombre">
+                <span class="material-symbols-outlined" aria-hidden="true">dark_mode</span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+
+    <!-- ========================= -->
+<!-- HERO / BANNIÈRE -->
+<!-- ========================= -->
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <h1>A Propos de nous</h1>
+            <div class="title-line"></div>
+        </div>
+    </section>
+
+    <!-- ========================= -->
+    <!-- QUI SOMMES-NOUS -->
+    <!-- ========================= -->
+
+    <section class="about">
+
+        <div class="section-title">
+            <h2>Qui sommes nous <span>?</span></h2>
+            <div class="title-line"></div>
+        </div>
+
+        <div class="about-container">
+
+            <div class="about-text">
+
+                <a href="#" class="history-btn">Notre Histoire</a>
+
+                <p>
+                    Agri Togo est une entreprise engagée qui connecte directement
+                    les producteurs de nos régions aux consommateurs.
+
+                    Fidèles à notre slogan
+                    <strong>"Ensemble, valorisons les produits locaux"</strong>,
+                    nous proposons des aliments sains et de qualité afin de soutenir
+                    une agriculture togolaise durable, responsable et équitable.
+                </p>
+
+            </div>
+
+            <div class="about-image">
+
+                <img src="../images/apropos27.jpeg" alt="Notre histoire">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- IDENTITÉ -->
+    <!-- ========================= -->
+
+    <section class="identity">
+
+        <div class="section-title">
+
+            <h2>Notre identité</h2>
+
+            <div class="title-line"></div>
+
+        </div>
+
+        <div class="identity-container">
+
+            <!-- Mission -->
+
+            <article class="identity-card">
+
+                <div class="icon">
+                    <span class="material-symbols-outlined">
+                        target
+                    </span>
+                </div>
+
+                <h3>Notre Mission</h3>
+
+                <p>
+                    Promouvoir les produits agricoles togolais, soutenir les
+                    producteurs locaux et offrir aux consommateurs des produits
+                    frais, sains et accessibles.
+                </p>
+
+            </article>
+
+            <!-- Vision -->
+
+            <article class="identity-card">
+
+                <div class="icon">
+                    <span class="material-symbols-outlined">
+                        visibility
+                    </span>
+                </div>
+
+                <h3>Notre Vision</h3>
+
+                <p>
+                    Être une référence nationale dans la valorisation des produits
+                    agricoles et contribuer au développement durable du secteur
+                    agricole togolais.
+                </p>
+
+            </article>
+
+            <!-- Valeurs -->
+
+            <article class="identity-card">
+
+                <div class="icon">
+                    <span class="material-symbols-outlined">
+                        favorite
+                    </span>
+                </div>
+
+                <h3>Nos Valeurs</h3>
+
+                <ul>
+
+                    <li>✔ Qualité</li>
+
+                    <li>✔ Innovation</li>
+
+                    <li>✔ Respect de l'environnement</li>
+
+                    <li>✔ Responsabilité sociale</li>
+
+                    <li>✔ Satisfaction des clients</li>
+
+                </ul>
+
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- NOTRE ÉQUIPE -->
+    <!-- ========================= -->
+
+    <section class="team">
+
+        <div class="section-title">
+
+            <h2>Notre Équipe</h2>
+
+            <div class="title-line"></div>
+
+        </div>
+
+        <div class="team-grid">
+
+            <!-- Marketing mis en avant -->
+            <article class="team-card">
+
+                <img src="../images/equipes.jpeg" alt="Mawusi Ayité, responsable marketing">
+
+                <div class="team-info">
+
+                    <h3>Mawusi Ayité</h3>
+
+                    <span class="team-role">Responsable marketing</span>
+
+                    <p class="team-bio">Elle développe la visibilité de la coopérative, anime les réseaux sociaux et fait découvrir les produits locaux au plus grand nombre.</p>
+
+                </div>
+
+            </article>
+
+            <article class="team-card">
+
+                <img src="../images/responsable.jpeg" alt="Kossi SEGBEGNO, président de la coopérative">
+
+                <div class="team-info">
+
+                    <h3>Kossi SEGBEGNO</h3>
+
+                    <span class="team-role">Président de la coopérative</span>
+
+                    <p class="team-bio">Il coordonne la stratégie de la coopérative et représente les producteurs auprès des partenaires.</p>
+
+                </div>
+
+            </article>
+
+            <article class="team-card">
+
+                <!-- TODO : déposer la photo du membre dans images/ sous ce nom -->
+                <img src="../images/equipe.jpeg" alt="Yao Dossou, responsable commercialisation">
+
+                <div class="team-info">
+
+                    <h3>Yao Dossou</h3>
+
+                    <span class="team-role">Responsable commercialisation et partenariats</span>
+
+                    <p class="team-bio">Il connecte les produits de la coopérative aux marchés locaux et développe les partenariats commerciaux.</p>
+
+                </div>
+
+            </article>
+
+            <article class="team-card">
+
+                <!-- TODO : déposer la photo du membre dans images/ sous ce nom -->
+                <img src="../images/equipev.jpeg" alt="Essohanam Tchalla, responsable logistique et qualité">
+
+                <div class="team-info">
+
+                    <h3>Valentin TAGA</h3>
+
+                    <span class="team-role">Responsable logistique et contrôle qualité</span>
+
+                    <p class="team-bio">Il veille à la fraîcheur des produits, au transport et à la traçabilité jusqu'au client.</p>
+
+                </div>
+
+            </article>
+
+            <!-- Référents de production et de zone -->
+
+            <article class="team-card">
+
+                <!-- TODO : déposer la photo du membre dans images/ sous ce nom -->
+                <img src="../images/producteur.jpeg" alt="Akouvi Sossou, chef producteur, zone Maritime">
+
+                <div class="team-info">
+
+                    <h3>Akouvi Sossou</h3>
+
+                    <span class="team-role">Chef producteur, zone Maritime</span>
+
+                    <p class="team-bio">Elle encadre les coopératives de la zone Maritime sur les cultures maraîchères et vivrières.</p>
+
+                </div>
+
+            </article>
+
+            <article class="team-card">
+
+                <!-- TODO : déposer la photo du membre dans images/ sous ce nom -->
+                <img src="../images/producteur2.jpeg" alt="Komlan Adade, chef producteur, zone des Plateaux">
+
+                <div class="team-info">
+
+                    <h3>Winnie SENOU</h3>
+
+                    <span class="team-role">Chef producteur, zone des Plateaux</span>
+
+                    <p class="team-bio">Il pilote la production de la zone des Plateaux, notamment le maïs, le manioc et les ananas.</p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- PARTENAIRES -->
+    <!-- ========================= -->
+
+    <section class="partners">
+
+        <div class="section-title">
+
+            <h2>Nos Partenaires</h2>
+
+            <div class="title-line"></div>
+
+        </div>
+
+        <div class="carousel" id="partners-carousel" role="region" aria-roledescription="carrousel" aria-label="Nos partenaires">
+
+            <div class="carousel-track">
+
+                <div class="carousel-slide" role="group" aria-roledescription="diapositive" aria-label="1 sur 3">
+
+                    <div class="partner">
+
+                        <img src="../images/partenaire1.png" alt="Partenaire 1">
+
+                    </div>
+
+                </div>
+
+                <div class="carousel-slide" role="group" aria-roledescription="diapositive" aria-label="2 sur 3">
+
+                    <div class="partner">
+
+                        <img src="../images/partenaire2.png" alt="Partenaire 2">
+
+                    </div>
+
+                </div>
+
+                <div class="carousel-slide" role="group" aria-roledescription="diapositive" aria-label="3 sur 3">
+
+                    <div class="partner">
+
+                        <img src="../images/partenaire3.png" alt="Partenaire 3">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button type="button" class="carousel-arrow prev" aria-label="Diapositive précédente">
+                <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
+            </button>
+
+            <button type="button" class="carousel-arrow next" aria-label="Diapositive suivante">
+                <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
+            </button>
+
+            <div class="carousel-dots"></div>
+
+        </div>
+
+    </section>
+
+    </main>
+
+    <footer>
+      <p>AGRI-TOGO | Coopérative Agricole</p>
+      <p>Adresse : Lomé, Togo</p>
+      <p>&copy; 2026 AGRI-TOGO. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
